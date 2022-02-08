@@ -13,7 +13,7 @@ app.use(express.static("views"));
 
 
 
-mongoose.connect('mongodb://localhost:27017/todolistDB', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://admin-ttran05:nhan0378798302@cluster0.owi72.mongodb.net/todolistDB', {useNewUrlParser: true});
 
 
 const items_schema = new mongoose.Schema({
