@@ -6,17 +6,28 @@
     </div>
 
     <div class="box">
-        <% for (var i =0; i < new_list_items.length; i++) { %> 
+        <!-- <% for (var i =0; i < new_list_items.length; i++) { %> 
         <div class="item">
             <input type="checkbox">
-            <p><%= new_list_items[i] %> </p>
+            <p><%= new_list_items[i].name %> </p>
 
         </div>
 
-        <%}%>
+        <%}%> -->
+        <form action="/delete" method="post">
+            <% new_list_items.forEach(function(element){ %>
+                <div class="item">
+                    <input type="checkbox" name="checkkbox" value="<%=element._id%>" onchange="this.form.submit()" >
+                    <p><%= element.name %> </p>
+                </div>
+                <%})%>
+                <input type="hidden" name="list_name" value="<%= list_title %>"></input>
+
+        </form>
+
         <form class="item" action="/" method="post">
-            <input type="text" name="new_item" placeholder="New Item">
-            <button type="submit" name="button" value=<%= list_title %>>+</button>
+            <input type="text" name="new_item" placeholder="New Item" >
+            <button type="submit" name="list" value=<%= list_title %>>+</button>
         </form>
     </div>
     <%- include("footer") -%>
